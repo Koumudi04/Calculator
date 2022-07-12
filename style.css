@@ -26,7 +26,6 @@ body {
   color: white;
 }
 .row {
-  margin: 3px;
   padding: 3px;
   /* border: 2px dotted blue; */
   display: inline-block;
@@ -36,7 +35,7 @@ body {
 }
 .btn {
   background-color: palevioletred;
-  margin: 2px;
+  margin: 10px 0px;
   padding: 2px;
   border: 0px inset;
   color: whitesmoke;

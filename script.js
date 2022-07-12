@@ -9,6 +9,19 @@ const keys = [
 ];
 const operations = ["+", "-", "*", "/", "%"];
 
+const press = (e) => {
+  let value = this.innerText;
+  console.log(value);
+  let entry = output.innerText;
+  if (entry == "0") {
+    entry = "";
+  }
+  entry = entry + value;
+  console.log(entry);
+  console.log(value);
+  output.innerText = entry;
+};
+
 const func = () => {
   output = document.createElement("div");
   output.innerText = "0";
@@ -21,6 +34,7 @@ const func = () => {
       let btn = document.createElement("button");
       btn.classList.add("btn");
       btn.innerText = keys[x][y];
+      btn.addEventListener("click", press);
       div.appendChild(btn);
     }
     calculator.appendChild(div);
