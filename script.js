@@ -9,18 +9,21 @@ const keys = [
 ];
 const operations = ["+", "-", "*", "/", "%"];
 
-const press = (e) => {
-  let value = this.innerText;
-  console.log(value);
-  let entry = output.innerText;
-  if (entry == "0") {
-    entry = "";
+function press(e) {
+  let entry = this.innerText;
+  console.log(entry);
+  let value = output.innerText;
+  if (value == "0") {
+    value = "";
   }
-  entry = entry + value;
+  if (operations.includes(entry)) {
+    value = eval(value);
+  }
+  value += entry;
   console.log(entry);
   console.log(value);
-  output.innerText = entry;
-};
+  output.innerText = value;
+}
 
 const func = () => {
   output = document.createElement("div");
@@ -29,12 +32,16 @@ const func = () => {
   calculator.appendChild(output);
   for (let x = 0; x < keys.length; x++) {
     let div = document.createElement("div");
-    div.classList.add("row");
+    if (x == 0) {
+      div.classList.add("row1");
+    } else {
+      div.classList.add("row");
+    }
     for (let y = 0; y < keys[x].length; y++) {
       let btn = document.createElement("button");
       btn.classList.add("btn");
-      btn.innerText = keys[x][y];
       btn.addEventListener("click", press);
+      btn.innerText = keys[x][y];
       div.appendChild(btn);
     }
     calculator.appendChild(div);
